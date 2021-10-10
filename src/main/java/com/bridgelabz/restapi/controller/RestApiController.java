@@ -1,5 +1,6 @@
 package com.bridgelabz.restapi.controller;
 
+import com.bridgelabz.restapi.entity.UserEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,5 +19,10 @@ public class RestApiController {
     @GetMapping(value = {"/hello/message/{name}"})
     public String helloPathParam(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz!\n";
+    }
+
+    @RequestMapping(value = {"/hello/post"}, method = RequestMethod.POST)
+    public String helloPost(@RequestBody UserEntity user) {
+        return user.details();
     }
 }
