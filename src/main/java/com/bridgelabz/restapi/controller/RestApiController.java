@@ -25,4 +25,9 @@ public class RestApiController {
     public String helloPost(@RequestBody UserEntity user) {
         return user.details();
     }
+
+    @PutMapping("/hello/param/{fname}")
+    public String helloPut(@PathVariable String fname, @RequestParam(value = "lname") String lname) {
+        return "Hello " + fname + " " + lname + " from BridgeLabz!\n";
+    }
 }
